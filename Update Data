@@ -1,0 +1,15 @@
+TECHNICAL EVOLUTION AND UPGRADE REPORT
+
+Previously, the application relied on monolithic logic where the frontend and backend were tightly coupled, making it difficult to scale or maintain. The project has now been refactored into a Decoupled Client-Server Architecture, operating as a true Single Page Application (SPA). In this new structure, the frontend exists as an independent layer communicating with a centralized Node.js/Express REST API via asynchronous Fetch requests and JSON data exchange.
+
+While the system previously lacked professional error handling—where unexpected user input or server failure caused system crashes or frozen interfaces—the current version includes a Global Error-Handling Middleware. This centralized safety net catches all system exceptions, ensuring the server remains operational and returns standardized, professional JSON error messages to the user.
+
+The initial version was a simple "happy path" prototype with no data validation, allowing for corrupted data states such as duplicate memberships or joining over-capacity groups. The current upgrade addresses this through input sanitization, where the backend performs explicit type-casting for precise data matching. It also features concurrency control via server-side validation to enforce group capacity limits and duplicate prevention logic.
+
+Regarding DevOps and deployment, configurations were formerly hardcoded for local environments, and version control was cluttered with unnecessary system files. The system is now cloud-ready due to the introduction of Dynamic Port Allocation, allowing for immediate deployment to platforms like Heroku or AWS. Furthermore, a .gitignore configuration now maintains a clean repository by excluding bulky dependency folders and system logs according to industry standards.
+
+While the interface was previously static and required manual refreshes, the current implementation utilizes Dynamic State Management. The UI now reacts instantly to backend changes, showing real-time updates for group counts, course filtering, and membership states without page reloads.
+
+To reflect these technical advancements, the project documentation and presentation have been significantly expanded. The project explanation now includes detailed sections on decoupled architecture and the technical logic behind the API. The presentation slides have been updated to include a comprehensive system architecture diagram, a detailed API endpoint table, and specific slides dedicated to technical logic and global middleware. These documentation changes ensure that the high-level engineering effort is clearly communicated alongside the functional code.
+
+The transition represents a shift from a functional sketch to a robust software engineering solution. By focusing on fault tolerance, data integrity, and modular logic, the application is now stable, scalable, and ready for professional academic or commercial use.
